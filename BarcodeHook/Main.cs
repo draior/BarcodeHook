@@ -23,6 +23,19 @@ namespace BarcodeApp
     {
       InitializeComponent();
 
+      this.StartPosition = FormStartPosition.Manual;
+
+      // Calculate the position to set the form at the top-right corner of the screen
+      int screenWidth = Screen.PrimaryScreen.WorkingArea.Width;
+      int formWidth = this.Width;
+      int xPosition = screenWidth - formWidth;
+
+      // Set the maximum height for the form
+      this.Height = Screen.PrimaryScreen.WorkingArea.Height;
+
+      // Set the location to the top-right corner of the screen
+      this.Location = new Point(xPosition, 0);
+
       if (args.Length == 0)
       {
         lb.Items.Add("Manual started app");
